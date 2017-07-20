@@ -8,15 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
-@class MZReduxState;
+@class MZReduxState, MZReduxReducer, MZReduxAction;
 
 @interface MZReduxStore : NSObject
 
-/**
- override this method to return a custom state
 
- @return MZReduxState
+/**
+ should auto persist state tree
  */
-- (MZReduxState *)rootState;
+@property (nonatomic, assign) BOOL enableAutoPersist;
+
+@property (nonatomic, strong, readonly) MZReduxState *rootState;
+@property (nonatomic, strong, readonly) NSArray<MZReduxReducer *> *reducers;
+
++ (instancetype)storeWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers;
+
+- (instancetype)initWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers;
+/**
+ override this method to return a black list of state class that will not be persisted into the disk
+
+ @return Set of MZReduxState Class
+ */
+- (NSSet<Class> *)blackListForPersistence;
+
+
+/**
+ dispatch an action to reducer
+
+ @param action action
+ */
+- (void)dispatch:(MZReduxAction *)action;
 
 @end

@@ -10,8 +10,8 @@
 
 @implementation MZReduxReducer
 
-+ (MZReduxState *)reducer:(MZReduxAction *)action state:(MZReduxState *)state {
-    // Override this method in subclass of MZRedux Reducer
+- (MZReduxState *)reducer:(MZReduxAction *)action state:(MZReduxState *)state {
+    // override this method in subclass of MZRedux Reducer
     return state;
 }
 
