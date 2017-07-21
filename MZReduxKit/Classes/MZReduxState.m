@@ -11,6 +11,11 @@
 
 @implementation MZReduxState
 
++ (MZReduxState *)reducer:(MZReduxAction *)action state:(MZReduxState *)state {
+    // override this method in subclass
+    return state;
+}
+
 #pragma mark - <NSCoding>
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];

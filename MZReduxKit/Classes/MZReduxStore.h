@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class MZReduxState, MZReduxReducer, MZReduxAction;
+@class MZReduxState, MZReduxAction;
+@protocol MZReduxSubscriber;
 
 @interface MZReduxStore : NSObject
 
@@ -17,13 +18,16 @@
  should auto persist state tree
  */
 @property (nonatomic, assign) BOOL enableAutoPersist;
+@property (nonatomic, strong, readonly) NSArray<MZReduxState *> *states;
+@property (nonatomic, strong, readonly) NSArray<id<MZReduxSubscriber>> *subscribers;
 
-@property (nonatomic, strong, readonly) MZReduxState *rootState;
-@property (nonatomic, strong, readonly) NSArray<MZReduxReducer *> *reducers;
++ (instancetype)storeWithStates:(NSArray<MZReduxState *> *)states;
+- (instancetype)initWithStates:(NSArray<MZReduxState *> *)states;
 
-+ (instancetype)storeWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers;
+- (MZReduxState *)stateWithStateClass:(Class)klass;
 
-- (instancetype)initWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers;
+
+
 /**
  override this method to return a black list of state class that will not be persisted into the disk
 
@@ -38,5 +42,9 @@
  @param action action
  */
 - (void)dispatch:(MZReduxAction *)action;
+
+- (void)subscribe:(id<MZReduxSubscriber>)subscriber;
+
+- (void)unsubscribe:(id<MZReduxSubscriber>)subscriber;
 
 @end

@@ -11,8 +11,7 @@
 
 #import "MZReduxStore.h"
 #import "MZReduxState.h"
-#import "MZReduxReducer.h"
 #import "MZReduxAction.h"
-#import "MZReduxPayload.h"
+#import "MZReduxSubscriber.h"
 
 #endif /* MZReduxKit_h */

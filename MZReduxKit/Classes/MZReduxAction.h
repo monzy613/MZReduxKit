@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class MZReduxPayload;
-
 @interface MZReduxAction : NSObject
-
-@property (nonatomic, strong) MZReduxPayload *payload;
 
 @end

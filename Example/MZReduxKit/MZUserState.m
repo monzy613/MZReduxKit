@@ -10,4 +10,8 @@
 
 @implementation MZUserState
 
++ (MZReduxState *)reducer:(MZReduxAction *)action state:(MZReduxState *)state {
+    return state;
+}
+
 @end

@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+@class MZStore;
+
 @interface MZAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

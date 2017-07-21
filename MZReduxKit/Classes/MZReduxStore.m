@@ -8,29 +8,44 @@
 
 #import "MZReduxStore.h"
 #import "MZReduxState.h"
-#import "MZReduxReducer.h"
 #import "MZReduxAction.h"
+#import "MZReduxSubscriber.h"
 
 @interface MZReduxStore ()
 
-@property (nonatomic, strong) MZReduxState *rootState;
-@property (nonatomic, strong) NSArray<MZReduxReducer *> *reducers;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, MZReduxState *> *stateDictionary;
+@property (nonatomic, strong) NSArray<MZReduxState *> *states;
+@property (nonatomic, strong) NSArray<id<MZReduxSubscriber>> *subscribers;
 
 @end
 
 @implementation MZReduxStore
 
-- (instancetype)initWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers {
++ (instancetype)storeWithStates:(NSArray<MZReduxState *> *)states {
+    return [[MZReduxStore alloc] initWithStates:states];
+}
+
+- (instancetype)init
+{
     self = [super init];
     if (self) {
-        _rootState = rootState;
-        _reducers = reducers;
+        _states = @[];
+        _subscribers = @[];
+        _stateDictionary = [NSMutableDictionary new];
     }
     return self;
 }
 
-+ (instancetype)storeWithRootState:(MZReduxState *)rootState reducers:(NSArray<MZReduxReducer *> *)reducers {
-    return [[MZReduxStore alloc] initWithRootState:rootState reducers:reducers];
+- (instancetype)initWithStates:(NSArray<MZReduxState *> *)states {
+    self = [self init];
+    if (self) {
+        self.states = states;
+    }
+    return self;
+}
+
+- (MZReduxState *)stateWithStateClass:(Class)klass {
+    return self.stateDictionary[NSStringFromClass(klass)];
 }
 
 - (NSSet<Class> *)blackListForPersistence {
@@ -39,9 +54,41 @@
 }
 
 - (void)dispatch:(MZReduxAction *)action {
-    for (MZReduxReducer *reducer in self.reducers) {
-        self.rootState = [reducer reducer:action state:self.rootState];
+    NSMutableArray *newStates = [NSMutableArray arrayWithArray:self.states];
+    [self.states enumerateObjectsUsingBlock:^(MZReduxState * _Nonnull state, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[state class] respondsToSelector:@selector(reducer:state:)]) {
+            MZReduxState *newState = [[state class] reducer:action state:state];
+            newStates[idx] = newState;
+        }
+    }];
+    self.states = newStates;
+
+    for (id<MZReduxSubscriber> subscriber in self.subscribers) {
+        if ([subscriber respondsToSelector:@selector(updateState:)] && [subscriber respondsToSelector:@selector(stateClass)]) {
+            MZReduxState *state = [self stateWithStateClass:[subscriber stateClass]];
+            [subscriber updateState:state];
+        }
     }
 }
 
+- (void)subscribe:(id<MZReduxSubscriber>)subscriber {
+    NSMutableArray *subscribers = [NSMutableArray arrayWithArray:self.subscribers];
+    [subscribers addObject:subscriber];
+    self.subscribers = subscribers;
+}
+
+- (void)unsubscribe:(id<MZReduxSubscriber>)subscriber {
+    NSMutableArray *subscribers = [NSMutableArray arrayWithArray:self.subscribers];
+    [subscribers removeObject:subscriber];
+    self.subscribers = subscribers;
+}
+
+
+#pragma mark - Accessors
+- (void)setStates:(NSArray<MZReduxState *> *)states {
+    _states = states;
+    for (MZReduxState *state in states) {
+        self.stateDictionary[NSStringFromClass([state class])] = state;
+    }
+}
 @end

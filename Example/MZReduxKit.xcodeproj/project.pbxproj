@@ -24,6 +24,11 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		DDB42B669ED418ED7F6232AF /* Pods_MZReduxKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA70A8CEDC2723F03412E69B /* Pods_MZReduxKit_Tests.framework */; };
+		F41DCA921F21996C00E17C1D /* MZUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41DCA911F21996C00E17C1D /* MZUserViewController.m */; };
+		F41DCA951F21997600E17C1D /* MZSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41DCA941F21997600E17C1D /* MZSettingViewController.m */; };
+		F41DCA981F219AC300E17C1D /* MZSettingState.m in Sources */ = {isa = PBXBuildFile; fileRef = F41DCA971F219AC300E17C1D /* MZSettingState.m */; };
+		F41DCA9E1F21A4AE00E17C1D /* MZChangeNotificationStateAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F41DCA9D1F21A4AE00E17C1D /* MZChangeNotificationStateAction.m */; };
+		F41DCAA31F21ABB800E17C1D /* MZStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F41DCAA21F21ABB800E17C1D /* MZStore.m */; };
 		F436BA3A1F20A0940060B6E6 /* MZUserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F436BA391F20A0940060B6E6 /* MZUserState.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,16 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D27B1D2E4724A2751A234FE2 /* Pods-MZReduxKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MZReduxKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MZReduxKit_Tests/Pods-MZReduxKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA70A8CEDC2723F03412E69B /* Pods_MZReduxKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MZReduxKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F41DCA901F21996C00E17C1D /* MZUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserViewController.h; sourceTree = "<group>"; };
+		F41DCA911F21996C00E17C1D /* MZUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserViewController.m; sourceTree = "<group>"; };
+		F41DCA931F21997600E17C1D /* MZSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSettingViewController.h; sourceTree = "<group>"; };
+		F41DCA941F21997600E17C1D /* MZSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZSettingViewController.m; sourceTree = "<group>"; };
+		F41DCA961F219AC300E17C1D /* MZSettingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSettingState.h; sourceTree = "<group>"; };
+		F41DCA971F219AC300E17C1D /* MZSettingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZSettingState.m; sourceTree = "<group>"; };
+		F41DCA9C1F21A4AE00E17C1D /* MZChangeNotificationStateAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZChangeNotificationStateAction.h; sourceTree = "<group>"; };
+		F41DCA9D1F21A4AE00E17C1D /* MZChangeNotificationStateAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZChangeNotificationStateAction.m; sourceTree = "<group>"; };
+		F41DCAA11F21ABB800E17C1D /* MZStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZStore.h; sourceTree = "<group>"; };
+		F41DCAA21F21ABB800E17C1D /* MZStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZStore.m; sourceTree = "<group>"; };
 		F436BA381F20A0940060B6E6 /* MZUserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserState.h; sourceTree = "<group>"; };
 		F436BA391F20A0940060B6E6 /* MZUserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,13 +161,8 @@
 		6003F593195388D20070C39A /* Example for MZReduxKit */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* MZAppDelegate.h */,
-				6003F59D195388D20070C39A /* MZAppDelegate.m */,
+				F41DCA881F21984300E17C1D /* src */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* MZViewController.h */,
-				6003F5A6195388D20070C39A /* MZViewController.m */,
-				F436BA381F20A0940060B6E6 /* MZUserState.h */,
-				F436BA391F20A0940060B6E6 /* MZUserState.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -199,6 +209,109 @@
 				229C1DEB0D1CE61729F5534E /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		F41DCA881F21984300E17C1D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA8B1F21987000E17C1D /* App */,
+				F41DCA991F219B9900E17C1D /* Main */,
+				F41DCA8C1F2198FA00E17C1D /* User */,
+				F41DCA8D1F21990F00E17C1D /* Setting */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		F41DCA891F21985B00E17C1D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA901F21996C00E17C1D /* MZUserViewController.h */,
+				F41DCA911F21996C00E17C1D /* MZUserViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F41DCA8A1F21986900E17C1D /* States */ = {
+			isa = PBXGroup;
+			children = (
+				F436BA381F20A0940060B6E6 /* MZUserState.h */,
+				F436BA391F20A0940060B6E6 /* MZUserState.m */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		F41DCA8B1F21987000E17C1D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6003F59C195388D20070C39A /* MZAppDelegate.h */,
+				6003F59D195388D20070C39A /* MZAppDelegate.m */,
+				F41DCAA11F21ABB800E17C1D /* MZStore.h */,
+				F41DCAA21F21ABB800E17C1D /* MZStore.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		F41DCA8C1F2198FA00E17C1D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA891F21985B00E17C1D /* Controllers */,
+				F41DCA9A1F21A45B00E17C1D /* Actions */,
+				F41DCA8A1F21986900E17C1D /* States */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		F41DCA8D1F21990F00E17C1D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA8F1F21995600E17C1D /* Controllers */,
+				F41DCA9B1F21A46500E17C1D /* Actions */,
+				F41DCA8E1F21995200E17C1D /* States */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		F41DCA8E1F21995200E17C1D /* States */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA961F219AC300E17C1D /* MZSettingState.h */,
+				F41DCA971F219AC300E17C1D /* MZSettingState.m */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		F41DCA8F1F21995600E17C1D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA931F21997600E17C1D /* MZSettingViewController.h */,
+				F41DCA941F21997600E17C1D /* MZSettingViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F41DCA991F219B9900E17C1D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6003F5A5195388D20070C39A /* MZViewController.h */,
+				6003F5A6195388D20070C39A /* MZViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		F41DCA9A1F21A45B00E17C1D /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		F41DCA9B1F21A46500E17C1D /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				F41DCA9C1F21A4AE00E17C1D /* MZChangeNotificationStateAction.h */,
+				F41DCA9D1F21A4AE00E17C1D /* MZChangeNotificationStateAction.m */,
+			);
+			name = Actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,9 +512,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41DCA981F219AC300E17C1D /* MZSettingState.m in Sources */,
 				6003F59E195388D20070C39A /* MZAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* MZViewController.m in Sources */,
+				F41DCA951F21997600E17C1D /* MZSettingViewController.m in Sources */,
+				F41DCA921F21996C00E17C1D /* MZUserViewController.m in Sources */,
+				F41DCA9E1F21A4AE00E17C1D /* MZChangeNotificationStateAction.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				F41DCAA31F21ABB800E17C1D /* MZStore.m in Sources */,
 				F436BA3A1F20A0940060B6E6 /* MZUserState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +651,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MZReduxKit/MZReduxKit-Prefix.pch";
 				INFOPLIST_FILE = "MZReduxKit/MZReduxKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,6 +667,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MZReduxKit/MZReduxKit-Prefix.pch";
 				INFOPLIST_FILE = "MZReduxKit/MZReduxKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

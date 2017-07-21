@@ -7,9 +7,6 @@
 //
 
 #import "MZViewController.h"
-#import "MZUserState.h"
-
-#define kMZReduxKitRootState @"kMZReduxKitRootState"
 
 @interface MZViewController ()
 
@@ -17,8 +14,7 @@
 
 @implementation MZViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
