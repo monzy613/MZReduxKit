@@ -16,13 +16,16 @@
     static MZStore *_sharedStore = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedStore = [MZStore storeWithStates:@[
-                                                  [MZUserState new],
-                                                  [MZSettingState new]
-                                                  ]];
+        _sharedStore = [[MZStore alloc] initFromDiskWithDefaultStates:@[
+                                                                       [MZUserState new],
+                                                                       [MZSettingState new]
+                                                                       ]];
     });
 
     return _sharedStore;
 }
 
++ (BOOL)enableAutoPersist {
+    return YES;
+}
 @end

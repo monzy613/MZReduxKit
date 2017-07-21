@@ -116,26 +116,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IwL-8K-3vU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsG-5l-dNs">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88f-BR-JCe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut9-XH-MQP">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2k-gb-5kn">
                                         <rect key="frame" x="0.0" y="201" width="375" height="201"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-zs-hLR">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di8-bi-oVP">
                                         <rect key="frame" x="0.0" y="402" width="375" height="201"/>
                                         <state key="normal" title="Change"/>
+                                        <connections>
+                                            <action selector="changeButtonPressed:" destination="RzA-Xr-gLG" eventType="touchUpInside" id="HlI-Or-kxm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5cn-zs-hLR" firstAttribute="height" secondItem="Ut9-XH-MQP" secondAttribute="height" id="uMS-c4-SYh"/>
-                                    <constraint firstItem="Ut9-XH-MQP" firstAttribute="height" secondItem="qsG-5l-dNs" secondAttribute="height" id="uMf-2B-RWp"/>
+                                    <constraint firstItem="y2k-gb-5kn" firstAttribute="height" secondItem="88f-BR-JCe" secondAttribute="height" id="3wb-4W-9Sk"/>
+                                    <constraint firstItem="Di8-bi-oVP" firstAttribute="height" secondItem="88f-BR-JCe" secondAttribute="height" id="ZIp-9A-fX9"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -147,6 +150,10 @@
                             <constraint firstItem="IwL-8K-3vU" firstAttribute="top" secondItem="crR-vx-MoX" secondAttribute="bottom" id="ew6-y6-ykk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mottoTextView" destination="y2k-gb-5kn" id="DkK-XX-nDF"/>
+                        <outlet property="nameTextView" destination="88f-BR-JCe" id="Wcr-le-waK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hus-5e-o7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

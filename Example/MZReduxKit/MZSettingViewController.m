@@ -21,27 +21,26 @@
 
 @implementation MZSettingViewController
 
+- (void)dealloc {
+    [[MZStore sharedStore] unsubscribe:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.notificationStateLabel.text = self.notificationSwitch.on ? @"on" : @"off";
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
     [[MZStore sharedStore] subscribe:self];
-}
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-
-    [[MZStore sharedStore] unsubscribe:self];
+    MZSettingState *initialState = (MZSettingState *)[[MZStore sharedStore] stateWithStateClass:[MZSettingState class]];
+    if (initialState) {
+        [self updateState:initialState];
+    } else {
+        self.notificationStateLabel.text = self.notificationSwitch.on ? @"on" : @"off";
+    }
 }
 
 #pragma mark - <MZReduxSubscriber>
 - (void)updateState:(MZSettingState *)state {
     self.notificationStateLabel.text = state.isNotificationOn ? @"on" : @"off";
+    self.notificationSwitch.on = state.isNotificationOn;
 }
 
 - (Class)stateClass {

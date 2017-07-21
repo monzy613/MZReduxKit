@@ -10,7 +10,7 @@
 
 @interface MZUserState : MZReduxState
 
-@property (nonatomic, strong) NSString *account;
-@property (nonatomic, strong) NSString *motto;
+@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *motto;
 
 @end

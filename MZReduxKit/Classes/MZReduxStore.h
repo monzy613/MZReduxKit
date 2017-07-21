@@ -14,19 +14,28 @@
 @interface MZReduxStore : NSObject
 
 
-/**
- should auto persist state tree
- */
-@property (nonatomic, assign) BOOL enableAutoPersist;
 @property (nonatomic, strong, readonly) NSArray<MZReduxState *> *states;
 @property (nonatomic, strong, readonly) NSArray<id<MZReduxSubscriber>> *subscribers;
 
+/**
+ // override this method to return a custom persistenceKey
+
+ @return persistenceKey
+ */
++ (NSString *)persistenceKey;
+
+/**
+ override this method to disable/enable auto persistence
+
+ @return enableAutoPersist
+ */
++ (BOOL)enableAutoPersist;
+
 + (instancetype)storeWithStates:(NSArray<MZReduxState *> *)states;
 - (instancetype)initWithStates:(NSArray<MZReduxState *> *)states;
+- (instancetype)initFromDiskWithDefaultStates:(NSArray<MZReduxState *> *)states;
 
 - (MZReduxState *)stateWithStateClass:(Class)klass;
-
-
 
 /**
  override this method to return a black list of state class that will not be persisted into the disk
