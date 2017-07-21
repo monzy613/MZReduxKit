@@ -48,9 +48,9 @@
     return self.stateDictionary[NSStringFromClass(klass)];
 }
 
-- (NSSet<Class> *)blackListForPersistence {
+- (NSArray<Class> *)blackListForPersistence {
     // override this method to return a custom state
-    return [NSSet setWithArray:@[]];
+    return @[];
 }
 
 - (void)dispatch:(MZReduxAction *)action {

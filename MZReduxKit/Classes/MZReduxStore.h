@@ -33,7 +33,7 @@
 
  @return Set of MZReduxState Class
  */
-- (NSSet<Class> *)blackListForPersistence;
+- (NSArray<Class> *)blackListForPersistence;
 
 
 /**
